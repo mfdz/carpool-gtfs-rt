@@ -1,15 +1,20 @@
+plugins {
+    id "com.github.sherter.google-java-format" version "0.8"
+}
+
 group 'io.leonard'
 version '1.0.0'
-
 apply plugin: 'application'
 
 sourceCompatibility = 11
 
-buildscript {
-    repositories {
-        mavenCentral()
+repositories {
+    mavenCentral()
+    maven {
+        url "http://nexus.onebusaway.org/nexus/content/repositories/public/"
     }
 }
+
 
 ext {
     configPath = "$rootProject.projectDir/config/"
@@ -24,12 +29,17 @@ repositories {
 dependencies {
     implementation group: 'io.dropwizard', name: 'dropwizard-core', version: dropwizardVersion
     implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
+    implementation group: 'org.onebusaway', name: 'onebusaway-gtfs-realtime-api', version: '1.2.11'
 
     testImplementation  group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: junitVersion
     testImplementation  group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: junitVersion
 }
 
-mainClassName = "io.leonard.RestJava"
+googleJavaFormat {
+    options style: 'AOSP'
+}
+
+mainClassName = "de.mfdz.GtfsRtApplication"
 
 run {
     args 'server'

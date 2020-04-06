@@ -30,7 +30,7 @@ public class CarpoolResource {
                         .setTripId("carpool-update-123")
                         .setStartDate(today)
                         .setScheduleRelationship(
-                                GtfsRealtime.TripDescriptor.ScheduleRelationship.SCHEDULED)
+                                GtfsRealtime.TripDescriptor.ScheduleRelationship.ADDED)
                         .build();
 
         String herrenbergId = "1:de:08115:4512:1:2";

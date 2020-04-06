@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!-- This pattern filters out many packages from the exception stack trace so that they become more readable.
+                 The packages listed below are filtered out.
+             -->
+            <pattern>
+                [%highlight(%-5level)] %logger{0} %thread - %mdc - %msg%n%rEx{full,java.lang.reflect.Method,
+                org.scalatest,
+                sbt,
+                java.base,
+                monix.eval,
+                monix.execution
+                }
+            </pattern>
+        </encoder>
+    </appender>
+
+
+    <logger name="io.netty" level="info" />
+    <logger name="org.asynchttpclient" level="INFO" />
+
+    <root level="info">
+        <appender-ref ref="STDOUT" />
+    </root>
+
+</configuration>

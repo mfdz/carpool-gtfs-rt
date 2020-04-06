@@ -42,5 +42,5 @@ googleJavaFormat {
 mainClassName = "de.mfdz.GtfsRtApplication"
 
 run {
-    args 'server'
+    args 'server', 'src/main/resources/config.yml'
 }

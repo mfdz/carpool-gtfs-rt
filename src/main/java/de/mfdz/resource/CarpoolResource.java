@@ -32,8 +32,8 @@ public class CarpoolResource {
                         .setScheduleRelationship(TripDescriptor.ScheduleRelationship.ADDED)
                         .build();
 
-        var herrenbergId = "1:de:08115:4512:1:2";
-        var ehningenId = "1:de:08115:5773:1:1";
+        var herrenbergId = "de:08115:4512:1:2";
+        var ehningenId = "de:08115:5773:1:1";
 
         var threeOclock =
                 LocalDate.now().atStartOfDay().plusHours(15).atZone(ZoneId.of("Europe/Berlin"));

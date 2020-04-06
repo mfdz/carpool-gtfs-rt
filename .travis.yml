@@ -1,0 +1,13 @@
+sudo: false
+language: java
+services:
+  - docker
+env:
+  global:
+jdk:
+  - openjdk11
+script:
+  - ./gradlew distInstall
+
+after_success:
+  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"

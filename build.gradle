@@ -1,0 +1,36 @@
+group 'io.leonard'
+version '1.0.0'
+
+apply plugin: 'application'
+
+sourceCompatibility = 11
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+ext {
+    configPath = "$rootProject.projectDir/config/"
+    dropwizardVersion = '1.0.5'
+    junitVersion = '5.3.1'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'io.dropwizard', name: 'dropwizard-core', version: dropwizardVersion
+    implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
+
+    testImplementation  group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: junitVersion
+    testImplementation  group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: junitVersion
+}
+
+mainClassName = "io.leonard.RestJava"
+
+run {
+    args 'server'
+}

@@ -9,6 +9,7 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.module.paramnames.ParameterNamesModule;
 import de.mfdz.protocol.CarpoolTrip;
 import de.mfdz.protocol.Coordinates;
+import de.mfdz.protocol.TripTime;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
@@ -37,5 +38,6 @@ public class CarpoolTripJsonTest {
         var first = parsedTrips.get(0);
         assertEquals(first.origin, herrenberg);
         assertEquals(first.destination, herrenberg);
+        assertEquals(first.time.getClass(), TripTime.Recurring.class);
     }
 }

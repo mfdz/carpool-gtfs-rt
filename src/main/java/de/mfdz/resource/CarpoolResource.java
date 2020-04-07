@@ -4,6 +4,8 @@ import static com.google.transit.realtime.GtfsRealtime.*;
 
 import com.codahale.metrics.annotation.Timed;
 import com.google.transit.realtime.GtfsRealtimeConstants;
+import de.mfdz.RealtimeExtension;
+import de.mfdz.RealtimeExtension.MfdzTripDescriptorExtension;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -25,11 +27,17 @@ public class CarpoolResource {
 
         var today = LocalDate.now().format(DateTimeFormatter.BASIC_ISO_DATE);
 
+        var withTripUrl =
+                MfdzTripDescriptorExtension.newBuilder()
+                        .setTripUrl("https://de.wikipedia.org/wiki/Herrenberg")
+                        .build();
+
         var tripDescriptor =
                 TripDescriptor.newBuilder()
                         .setTripId("carpool-update-123")
                         .setStartDate(today)
                         .setScheduleRelationship(TripDescriptor.ScheduleRelationship.ADDED)
+                        .setExtension(RealtimeExtension.tripDescriptor, withTripUrl)
                         .build();
 
         var herrenbergId = "de:08115:4512:1:2";

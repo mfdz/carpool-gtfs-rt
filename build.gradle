@@ -1,8 +1,9 @@
 plugins {
-    id "com.github.sherter.google-java-format" version "0.8"
-    id "com.google.protobuf" version "0.8.12"
     id "idea"
     id "application"
+    id "com.github.sherter.google-java-format" version "0.8"
+    id "com.google.protobuf" version "0.8.12"
+    id 'com.github.ksoichiro.console.reporter' version '0.6.2'
 }
 
 group 'io.leonard'
@@ -18,11 +19,13 @@ repositories {
     }
 }
 
+compileJava {
+    options.compilerArgs << '-parameters'
+}
 
 ext {
-    configPath = "$rootProject.projectDir/config/"
     dropwizardVersion = '1.0.5'
-    junitVersion = '5.3.1'
+    junitVersion = '5.6.1'
 }
 
 repositories {
@@ -34,6 +37,7 @@ dependencies {
     implementation group: 'io.dropwizard', name: 'dropwizard-core', version: dropwizardVersion
     implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
     implementation group: 'org.onebusaway', name: 'onebusaway-gtfs-realtime-api', version: '1.2.11'
+    implementation group: 'com.fasterxml.jackson.module', name: 'jackson-module-parameter-names', version: '2.10.3'
 
     testImplementation  group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: junitVersion
     testImplementation  group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: junitVersion
@@ -47,4 +51,8 @@ mainClassName = "de.mfdz.GtfsRtApplication"
 
 run {
     args 'server', 'src/main/resources/config.yml'
+}
+
+test {
+    useJUnitPlatform()
 }

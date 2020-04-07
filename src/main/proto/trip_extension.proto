@@ -1,0 +1,15 @@
+syntax = "proto2";
+
+import "com/google/transit/realtime/gtfs-realtime.proto";
+
+option java_package = "de.mfdz";
+package transit_realtime;
+
+
+message MyTripDescriptorExtension {
+  optional string trip_url = 1;
+}
+
+extend TripDescriptor {
+  optional MyTripDescriptorExtension my_trip_descriptor = 1100;
+}

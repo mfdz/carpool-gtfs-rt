@@ -1,6 +1,7 @@
 [
   {
     "id": "recurring-123",
+    "url": "https://de.wikipedia.org/wiki/Herrenberg",
     "locations": [
       {
         "name": "Ehningen",
@@ -33,6 +34,7 @@
   },
   {
     "id": "one-off-123",
+    "url": "https://de.wikipedia.org/wiki/Herrenberg",
     "locations": [
       {
         "name": "Ehningen",

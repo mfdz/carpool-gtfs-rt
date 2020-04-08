@@ -8,7 +8,7 @@ import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.module.paramnames.ParameterNamesModule;
 import de.mfdz.protocol.CarpoolTrip;
-import de.mfdz.protocol.Coordinates;
+import de.mfdz.protocol.Location;
 import de.mfdz.protocol.TripTime;
 import java.io.IOException;
 import java.io.InputStream;
@@ -23,7 +23,7 @@ public class CarpoolTripJsonTest {
 
     @Test
     void readTrips() throws IOException {
-        var herrenberg = new Coordinates(48.5997, 8.8859);
+        var herrenberg = new Location("Ehningen", 48.5997, 8.8859);
 
         var mapper =
                 JsonMapper.builder()
@@ -36,8 +36,8 @@ public class CarpoolTripJsonTest {
 
         assertEquals(parsedTrips.size(), 2);
         var first = parsedTrips.get(0);
-        assertEquals(first.origin, herrenberg);
-        assertEquals(first.destination, herrenberg);
+        assertEquals(first.locations.get(0), herrenberg);
+        assertEquals(first.locations.size(), 3);
         assertEquals(first.time.getClass(), TripTime.Recurring.class);
     }
 }

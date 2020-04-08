@@ -1,15 +1,15 @@
 package de.mfdz.protocol;
 
+import java.util.List;
+
 public class CarpoolTrip {
     public final String id;
-    public final Coordinates origin;
-    public final Coordinates destination;
+    public final List<Location> locations;
     public final TripTime time;
 
-    public CarpoolTrip(String id, Coordinates origin, Coordinates destination, TripTime time) {
+    public CarpoolTrip(String id, List<Location> locations, TripTime time) {
         this.id = id;
-        this.origin = origin;
-        this.destination = destination;
+        this.locations = locations;
         this.time = time;
     }
 }

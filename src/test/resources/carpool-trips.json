@@ -1,14 +1,23 @@
 [
   {
     "id": "recurring-123",
-    "origin": {
-      "lat": 48.5997,
-      "lng": 8.8859
-    },
-    "destination": {
-      "lat": 48.5997,
-      "lng": 8.8859
-    },
+    "locations": [
+      {
+        "name": "Ehningen",
+        "lat": 48.5997,
+        "lng": 8.8859
+      },
+      {
+        "name": "Gärtringen",
+        "lat": 48.5997,
+        "lng": 8.8859
+      },
+      {
+        "name": "Herrenberg",
+        "lat": 48.5997,
+        "lng": 8.8859
+      }
+    ],
     "time": {
       "type": "recurring",
       "startDate": "2020-04-07",
@@ -24,14 +33,23 @@
   },
   {
     "id": "one-off-123",
-    "origin": {
-      "lat": 48.5997,
-      "lng": 8.8859
-    },
-    "destination": {
-      "lat": 48.5997,
-      "lng": 8.8859
-    },
+    "locations": [
+      {
+        "name": "Ehningen",
+        "lat": 48.5997,
+        "lng": 8.8859
+      },
+      {
+        "name": "Gärtringen",
+        "lat": 48.5997,
+        "lng": 8.8859
+      },
+      {
+        "name": "Herrenberg",
+        "lat": 48.5997,
+        "lng": 8.8859
+      }
+    ],
     "time": {
       "type": "one-off",
       "departureTime": "2020-04-07T06:30:00+02:00"

@@ -3,7 +3,6 @@ package de.mfdz.resource;
 import static com.google.transit.realtime.GtfsRealtime.*;
 
 import com.codahale.metrics.annotation.Timed;
-import com.google.transit.realtime.GtfsRealtimeConstants;
 import de.mfdz.RealtimeExtension;
 import de.mfdz.RealtimeExtension.MfdzTripDescriptorExtension;
 import java.time.Instant;
@@ -61,7 +60,7 @@ public class CarpoolResource {
                 FeedHeader.newBuilder()
                         .setIncrementality(FeedHeader.Incrementality.FULL_DATASET)
                         .setTimestamp(Instant.now().getEpochSecond())
-                        .setGtfsRealtimeVersion(GtfsRealtimeConstants.VERSION);
+                        .setGtfsRealtimeVersion("1.0");
 
         var entity =
                 FeedEntity.newBuilder().setId(update.getTrip().getTripId()).setTripUpdate(update);

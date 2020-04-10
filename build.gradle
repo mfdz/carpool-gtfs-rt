@@ -39,7 +39,7 @@ dependencies {
     implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
     // this JAR can be replace with the normal upstream version once this PR has been merged
     // https://github.com/MobilityData/gtfs-realtime-bindings/pull/61
-    implementation group: 'io.leonard', name: 'gtfs-realtime-bindings', version: '0.0.6'
+    implementation group: 'io.leonard', name: 'gtfs-realtime-bindings', version: '0.0.7'
     implementation group: 'com.fasterxml.jackson.module', name: 'jackson-module-parameter-names', version: jacksonVersion
     implementation group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: jacksonVersion
 

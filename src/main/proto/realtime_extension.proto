@@ -1,6 +1,6 @@
 syntax = "proto2";
 
-import "com/google/transit/realtime/gtfs-realtime.proto";
+import "gtfs-realtime.proto";
 
 option java_package = "de.mfdz";
 package transit_realtime;
@@ -10,5 +10,5 @@ message MfdzTripDescriptorExtension {
 }
 
 extend TripDescriptor {
-  optional MfdzTripDescriptorExtension trip_descriptor = 1100;
+  optional MfdzTripDescriptorExtension trip_descriptor = 9000;
 }
